@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>One-Time Audio</title>
+</head>
+<body>
+  <h2>One-Time Audio Playback</h2>
+  <audio id="myAudio" controls>
+    <source src="https://drive.google.com/uc?export=download&id=16zbkstkGV2bQw1cXTGwdCXkUr9TQFJFv" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('myAudio');
+
+    audio.addEventListener('play', () => {
+      audio.controls = false; // Remove controls when played
+    });
+
+    audio.addEventListener('ended', () => {
+      audio.remove(); // Remove the player after playing once
+      document.body.innerHTML += "<p>The audio has been played.</p>";
+    });
+  </script>
+</body>
+</html>
